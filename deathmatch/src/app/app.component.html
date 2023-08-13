@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="start">
+    <h2>Grade 1</h2>
+    <div class="grade-a">
+      <p>A</p>
+      <button (click)="approvedForSemiFinal('a', teams.a.teamOne)">{{teams.a.teamOne}}</button>
+      <button (click)="approvedForSemiFinal('a', teams.a.teamTwo)">{{teams.a.teamTwo}}</button>
+    </div>
+    <div class="grade-b">
+      <p>B</p>
+      <button (click)="approvedForSemiFinal('b', teams.b.teamOne)">{{teams.b.teamOne}}</button>
+      <button (click)="approvedForSemiFinal('b', teams.b.teamTwo)">{{teams.b.teamTwo}}</button>
+    </div>
+    <div class="grade-c">
+      <p>C</p>
+      <button (click)="approvedForSemiFinal('c', teams.c.teamOne)">{{teams.c.teamOne}}</button>
+      <button (click)="approvedForSemiFinal('c', teams.c.teamTwo)">{{teams.c.teamTwo}}</button>
+    </div>
+    <div class="grade-d">
+      <p>D</p>
+      <button (click)="approvedForSemiFinal('d', teams.d.teamOne)">{{teams.d.teamOne}}</button>
+      <button (click)="approvedForSemiFinal('d', teams.d.teamTwo)">{{teams.d.teamTwo}}</button>
+    </div>
+  </div>
+  <hr>
+  <div class="semi-final">
+    <h2>SemiFinal</h2>
+    <div class="grade-a">
+      <button (click)="approvedForFinal('a', semiFinal.a.teamOne)">{{semiFinal.a.teamOne ?? 'aguardando resultado'}}</button>
+      <button (click)="approvedForFinal('a', semiFinal.a.teamTwo)">{{semiFinal.a.teamTwo ?? 'aguardando resultado'}}</button>
+    </div>
+    <div class="grade-b">
+      <button (click)="approvedForFinal('b', semiFinal.b.teamOne)">{{semiFinal.b.teamOne ?? 'aguardando resultado'}}</button>
+      <button (click)="approvedForFinal('b', semiFinal.b.teamTwo)">{{semiFinal.b.teamTwo ?? 'aguardando resultado'}}</button>
+    </div>
+  </div>
+  <hr>
+  <div class="final">
+    <h2>Final</h2>
+    <button (click)="setWinner(final.teamOne)">{{final.teamOne}}</button>
+    <button (click)="setWinner(final.teamTwo)">{{final.teamTwo}}</button>
+  </div>
+  <h3 *ngIf="winner">Ganhador: {{ winner }}</h3>
+</div>

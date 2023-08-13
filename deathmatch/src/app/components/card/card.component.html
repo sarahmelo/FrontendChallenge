@@ -1,0 +1,10 @@
+<button
+  style="padding: 5px 10px; background-color: white;"
+  [disabled]="isSelected"
+  [ngStyle]="{ 'opacity': isSelected ? '0.5' : '1' }"
+  (click)="selectCard()"
+>
+  <div style="color: black;">
+    {{ name }}
+  </div>
+</button>
