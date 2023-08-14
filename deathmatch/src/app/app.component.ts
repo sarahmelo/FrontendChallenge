@@ -1,4 +1,13 @@
-import { AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
+
+type Team = {
+  teamOne: string
+  teamTwo: string
+}
+
+type Round = {
+  [key: string]: Team
+}
 
 @Component({
   selector: 'app-root',
@@ -8,62 +17,64 @@ import { AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges } from '@
 export class AppComponent  {
   public winner: string = '';
 
-  public teams = {
-    ['a']: {
+  public firstRound: Round = {
+    'a': {
       teamOne: 'Demacia',
       teamTwo: 'Freljord',
     },
-    ['b']: {
+    'b': {
       teamOne: 'Ilha das Sombras',
       teamTwo: 'Ionia',
     },
-    ['c']: {
+    'c': {
       teamOne: 'Piltover',
       teamTwo: 'Shurima',
     },
-    ['d']: {
+    'd': {
       teamOne: 'Águas de Sentina',
       teamTwo: 'Zaun',
     }
   }
 
-  public semiFinal = {
-    ['a']: {
+  public secondRound: Round = {
+    'a': {
       teamOne: '',
       teamTwo: '',
     },
-    ['b']: {
+    'b': {
       teamOne: '',
       teamTwo: '',
     }
   }
 
-  public final = {
-    teamOne: '',
-    teamTwo: '',
+  public thirtyRound: Round = {
+    'a':{
+      teamOne: '',
+      teamTwo: '',
+    }
   }
 
-  public approvedForSemiFinal(grade: string, team: string): void {
-    if (grade === 'a') {
-      this.semiFinal.a.teamOne = team;
+  public approvedForSemiFinal(id: string, team: string): void {
+    if (id === 'a') {
+      this.secondRound.a.teamOne = team;
 
       return
     }
 
-    if (grade === 'b') {
-      this.semiFinal.a.teamTwo = team
+    if (id === 'b') {
+      this.secondRound.a.teamTwo = team
 
       return
     }
 
-    if (grade === 'c') {
-      this.semiFinal.b.teamOne = team;
+    if (id === 'c') {
+      this.secondRound.b.teamOne = team;
 
       return
     }
 
-    if (grade === 'd') {
-      this.semiFinal.b.teamTwo = team;
+    if (id === 'd') {
+      this.secondRound.b.teamTwo = team;
 
       return
     }
@@ -71,15 +82,27 @@ export class AppComponent  {
 
   public approvedForFinal(grade: string, team: string): void {
     if (grade === 'a') {
-      this.final.teamOne = team
+      this.thirtyRound.a.teamOne = team
     }
 
     if (grade === 'b') {
-      this.final.teamTwo = team
+      this.thirtyRound.a.teamTwo = team
     }
   }
 
   public setWinner(team: string): void {
     this.winner = team
+
+    window.alert(`${this.winner} ganhou o torneio!`)
+  }
+
+  public isClassifiedForNext(
+    team: string,
+    grade: string,
+    round: Round
+  ): boolean {
+    const teamsClassified = Object.values(round[grade])
+
+    return teamsClassified.includes(team)
   }
 }

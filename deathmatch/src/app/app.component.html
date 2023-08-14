@@ -1,44 +1,114 @@
 <div class="container">
-  <div class="start">
-    <h2>Grade 1</h2>
-    <div class="grade-a">
-      <p>A</p>
-      <button (click)="approvedForSemiFinal('a', teams.a.teamOne)">{{teams.a.teamOne}}</button>
-      <button (click)="approvedForSemiFinal('a', teams.a.teamTwo)">{{teams.a.teamTwo}}</button>
+  <div class="header">
+    <p>Torneio de Reinos</p>
+    <h1>Valoran</h1>
+  </div>
+  <!-- start -->
+  <div class="grade first-grade">
+    <div class="first-grade__left">
+      <div class="a">
+        <ButtonComponent
+          (click)="approvedForSemiFinal('a', firstRound.a.teamOne)"
+          [isClassified]="isClassifiedForNext(firstRound.a.teamOne, 'a', secondRound)"
+          [text]="firstRound.a.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForSemiFinal('a', firstRound.a.teamTwo)"
+          [isClassified]="isClassifiedForNext(firstRound.a.teamTwo, 'a', secondRound)"
+          [text]="firstRound.a.teamTwo"
+        ></ButtonComponent>
+      </div>
+      <div class="b">
+        <ButtonComponent
+          (click)="approvedForSemiFinal('b', firstRound.b.teamOne)"
+          [isClassified]="isClassifiedForNext(firstRound.b.teamOne, 'a', secondRound)"
+          [text]="firstRound.b.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForSemiFinal('b', firstRound.b.teamTwo)"
+          [isClassified]="isClassifiedForNext(firstRound.b.teamTwo, 'a', secondRound)"
+          [text]="firstRound.b.teamTwo"
+        ></ButtonComponent>
+      </div>
     </div>
-    <div class="grade-b">
-      <p>B</p>
-      <button (click)="approvedForSemiFinal('b', teams.b.teamOne)">{{teams.b.teamOne}}</button>
-      <button (click)="approvedForSemiFinal('b', teams.b.teamTwo)">{{teams.b.teamTwo}}</button>
+    <!-- semifinal -->
+    <div class="grade second-grade">
+      <div class="second-grade__left">
+        <ButtonComponent
+          (click)="approvedForFinal('a', secondRound.a.teamOne)"
+          [isClassified]="isClassifiedForNext(secondRound.a.teamOne, 'a', thirtyRound)"
+          [text]="secondRound.a.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForFinal('a', secondRound.a.teamTwo)"
+          [isClassified]="isClassifiedForNext(secondRound.a.teamTwo, 'a', thirtyRound)"
+          [text]="secondRound.a.teamTwo"
+        ></ButtonComponent>
+      </div>
+
+      <!-- final -->
+      <div class="grade thirty-grade">
+        <ButtonComponent
+          (click)="setWinner(thirtyRound.a.teamOne)"
+          [isClassified]="winner === thirtyRound.a.teamOne"
+          [text]="thirtyRound.a.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="setWinner(thirtyRound.a.teamTwo)"
+          [isClassified]="winner === thirtyRound.a.teamTwo"
+          [text]="thirtyRound.a.teamTwo"
+        ></ButtonComponent>
+      </div>
+      <!-- final -->
+
+      <div class="grade second-grade__right">
+        <ButtonComponent
+          (click)="approvedForFinal('b', secondRound.b.teamOne)"
+          [isClassified]="isClassifiedForNext(secondRound.b.teamOne, 'a', thirtyRound)"
+          [text]="secondRound.b.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForFinal('b', secondRound.b.teamTwo)"
+          [isClassified]="isClassifiedForNext(secondRound.b.teamTwo, 'a', thirtyRound)"
+          [text]="secondRound.b.teamTwo"
+        ></ButtonComponent>
+      </div>
     </div>
-    <div class="grade-c">
-      <p>C</p>
-      <button (click)="approvedForSemiFinal('c', teams.c.teamOne)">{{teams.c.teamOne}}</button>
-      <button (click)="approvedForSemiFinal('c', teams.c.teamTwo)">{{teams.c.teamTwo}}</button>
-    </div>
-    <div class="grade-d">
-      <p>D</p>
-      <button (click)="approvedForSemiFinal('d', teams.d.teamOne)">{{teams.d.teamOne}}</button>
-      <button (click)="approvedForSemiFinal('d', teams.d.teamTwo)">{{teams.d.teamTwo}}</button>
+    <!-- semifinal -->
+
+    <div class="grade first-grade__right">
+      <div class="c">
+        <ButtonComponent
+          (click)="approvedForSemiFinal('c', firstRound.c.teamOne)"
+          [isClassified]="isClassifiedForNext(firstRound.c.teamOne, 'b', secondRound)"
+          [text]="firstRound.c.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForSemiFinal('c', firstRound.c.teamTwo)"
+          [isClassified]="isClassifiedForNext(firstRound.c.teamTwo, 'b', secondRound)"
+          [text]="firstRound.c.teamTwo"
+        ></ButtonComponent>
+      </div>
+      <div class="d">
+        <ButtonComponent
+          (click)="approvedForSemiFinal('d', firstRound.d.teamOne)"
+          [isClassified]="isClassifiedForNext(firstRound.d.teamOne, 'b', secondRound)"
+          [text]="firstRound.d.teamOne"
+        ></ButtonComponent>
+        <p class="versus">vs</p>
+        <ButtonComponent
+          (click)="approvedForSemiFinal('d', firstRound.d.teamTwo)"
+          [isClassified]="isClassifiedForNext(firstRound.d.teamTwo, 'b', secondRound)"
+          [text]="firstRound.d.teamTwo"
+        ></ButtonComponent>
+      </div>
     </div>
   </div>
-  <hr>
-  <div class="semi-final">
-    <h2>SemiFinal</h2>
-    <div class="grade-a">
-      <button (click)="approvedForFinal('a', semiFinal.a.teamOne)">{{semiFinal.a.teamOne ?? 'aguardando resultado'}}</button>
-      <button (click)="approvedForFinal('a', semiFinal.a.teamTwo)">{{semiFinal.a.teamTwo ?? 'aguardando resultado'}}</button>
-    </div>
-    <div class="grade-b">
-      <button (click)="approvedForFinal('b', semiFinal.b.teamOne)">{{semiFinal.b.teamOne ?? 'aguardando resultado'}}</button>
-      <button (click)="approvedForFinal('b', semiFinal.b.teamTwo)">{{semiFinal.b.teamTwo ?? 'aguardando resultado'}}</button>
-    </div>
-  </div>
-  <hr>
-  <div class="final">
-    <h2>Final</h2>
-    <button (click)="setWinner(final.teamOne)">{{final.teamOne}}</button>
-    <button (click)="setWinner(final.teamTwo)">{{final.teamTwo}}</button>
-  </div>
-  <h3 *ngIf="winner">Ganhador: {{ winner }}</h3>
+  <!-- start -->
 </div>

@@ -1,3 +1,103 @@
 .container {
-  margin: 30px
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 60px;
+  background-color: rgb(7 13 26 / 97%);
+
+  .versus {
+    color: #fff;
+    text-align: center;
+    margin: 0 4px;
+    line-height: 1;
+  }
+
+  .header {
+    text-align: center;
+
+    p {
+      color: #C8AA6E;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      color: #FFF;
+      font-size: 3rem;
+      margin: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  .grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .first-grade, .second-grade, .thirty-grade {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .first-grade {
+      gap: 50px;
+
+      &__left {
+        gap: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .a, .b {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+
+      &__right {
+        gap: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .c, .d {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    }
+
+    .second-grade {
+      gap: 50px;
+      height: 100%;
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    .thirty-grade {
+      gap: 12px;
+      height: 100%;
+    }
+  }
 }
+
+

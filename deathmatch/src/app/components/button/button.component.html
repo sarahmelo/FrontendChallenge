@@ -1,0 +1,8 @@
+<button
+  class="button"
+  [ngClass]="modifierClassIfClassified()"
+>
+  <div class="button__text">
+    {{ text !== '' ? text : '-' }}
+  </div>
+</button>
