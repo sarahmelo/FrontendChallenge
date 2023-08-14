@@ -3,53 +3,52 @@
     <p>Torneio de Reinos</p>
     <h1>Valoran</h1>
   </div>
-  <!-- start -->
+
   <div class="grade first-grade">
     <div class="first-grade__left">
       <div class="a">
         <ButtonComponent
-          (click)="approvedForSemiFinal('a', firstRound.a.teamOne)"
+          (click)="setSemiFinalistTeam('a', firstRound.a.teamOne)"
           [isClassified]="isClassifiedForNext(firstRound.a.teamOne, 'a', secondRound)"
           [text]="firstRound.a.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForSemiFinal('a', firstRound.a.teamTwo)"
+          (click)="setSemiFinalistTeam('a', firstRound.a.teamTwo)"
           [isClassified]="isClassifiedForNext(firstRound.a.teamTwo, 'a', secondRound)"
           [text]="firstRound.a.teamTwo"
         ></ButtonComponent>
       </div>
       <div class="b">
         <ButtonComponent
-          (click)="approvedForSemiFinal('b', firstRound.b.teamOne)"
+          (click)="setSemiFinalistTeam('b', firstRound.b.teamOne)"
           [isClassified]="isClassifiedForNext(firstRound.b.teamOne, 'a', secondRound)"
           [text]="firstRound.b.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForSemiFinal('b', firstRound.b.teamTwo)"
+          (click)="setSemiFinalistTeam('b', firstRound.b.teamTwo)"
           [isClassified]="isClassifiedForNext(firstRound.b.teamTwo, 'a', secondRound)"
           [text]="firstRound.b.teamTwo"
         ></ButtonComponent>
       </div>
     </div>
-    <!-- semifinal -->
+
     <div class="grade second-grade">
       <div class="second-grade__left">
         <ButtonComponent
-          (click)="approvedForFinal('a', secondRound.a.teamOne)"
+          (click)="setFinalistTeam('a', secondRound.a.teamOne)"
           [isClassified]="isClassifiedForNext(secondRound.a.teamOne, 'a', thirtyRound)"
           [text]="secondRound.a.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForFinal('a', secondRound.a.teamTwo)"
+          (click)="setFinalistTeam('a', secondRound.a.teamTwo)"
           [isClassified]="isClassifiedForNext(secondRound.a.teamTwo, 'a', thirtyRound)"
           [text]="secondRound.a.teamTwo"
         ></ButtonComponent>
       </div>
 
-      <!-- final -->
       <div class="grade thirty-grade">
         <ButtonComponent
           (click)="setWinner(thirtyRound.a.teamOne)"
@@ -63,52 +62,49 @@
           [text]="thirtyRound.a.teamTwo"
         ></ButtonComponent>
       </div>
-      <!-- final -->
 
       <div class="grade second-grade__right">
         <ButtonComponent
-          (click)="approvedForFinal('b', secondRound.b.teamOne)"
+          (click)="setFinalistTeam('b', secondRound.b.teamOne)"
           [isClassified]="isClassifiedForNext(secondRound.b.teamOne, 'a', thirtyRound)"
           [text]="secondRound.b.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForFinal('b', secondRound.b.teamTwo)"
+          (click)="setFinalistTeam('b', secondRound.b.teamTwo)"
           [isClassified]="isClassifiedForNext(secondRound.b.teamTwo, 'a', thirtyRound)"
           [text]="secondRound.b.teamTwo"
         ></ButtonComponent>
       </div>
     </div>
-    <!-- semifinal -->
 
     <div class="grade first-grade__right">
       <div class="c">
         <ButtonComponent
-          (click)="approvedForSemiFinal('c', firstRound.c.teamOne)"
+          (click)="setSemiFinalistTeam('c', firstRound.c.teamOne)"
           [isClassified]="isClassifiedForNext(firstRound.c.teamOne, 'b', secondRound)"
           [text]="firstRound.c.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForSemiFinal('c', firstRound.c.teamTwo)"
+          (click)="setSemiFinalistTeam('c', firstRound.c.teamTwo)"
           [isClassified]="isClassifiedForNext(firstRound.c.teamTwo, 'b', secondRound)"
           [text]="firstRound.c.teamTwo"
         ></ButtonComponent>
       </div>
       <div class="d">
         <ButtonComponent
-          (click)="approvedForSemiFinal('d', firstRound.d.teamOne)"
+          (click)="setSemiFinalistTeam('d', firstRound.d.teamOne)"
           [isClassified]="isClassifiedForNext(firstRound.d.teamOne, 'b', secondRound)"
           [text]="firstRound.d.teamOne"
         ></ButtonComponent>
         <p class="versus">vs</p>
         <ButtonComponent
-          (click)="approvedForSemiFinal('d', firstRound.d.teamTwo)"
+          (click)="setSemiFinalistTeam('d', firstRound.d.teamTwo)"
           [isClassified]="isClassifiedForNext(firstRound.d.teamTwo, 'b', secondRound)"
           [text]="firstRound.d.teamTwo"
         ></ButtonComponent>
       </div>
     </div>
   </div>
-  <!-- start -->
 </div>

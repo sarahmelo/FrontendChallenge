@@ -54,7 +54,7 @@ export class AppComponent  {
     }
   }
 
-  public approvedForSemiFinal(id: string, team: string): void {
+  public setSemiFinalistTeam(id: string, team: string): void {
     if (id === 'a') {
       this.secondRound.a.teamOne = team;
 
@@ -80,7 +80,7 @@ export class AppComponent  {
     }
   }
 
-  public approvedForFinal(grade: string, team: string): void {
+  public setFinalistTeam(grade: string, team: string): void {
     if (grade === 'a') {
       this.thirtyRound.a.teamOne = team
     }
